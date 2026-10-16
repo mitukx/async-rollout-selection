@@ -6,10 +6,11 @@ A small, auditable starting point for studying **completion-dependent sampling i
 
 With a two-action logistic policy, deterministic rewards, and action-dependent completion probabilities, training on completed rollouts can **reverse the expected REINFORCE update direction**. In a concrete example, the true gradient is `-0.2`, while the completed-only expected score is `+0.045455`. Known, strictly positive inclusion probabilities admit an unbiased per-launch inverse-probability-weighted estimator, with an exact variance formula. If completion depends on the *unobserved reward*, the original gradient need not be identifiable—even with strictly positive completion probabilities.
 
-See [theory.md](theory.md) for statements, proofs, assumptions, and limitations. These are elementary selection/missing-data results, **not claimed as novel research theorems**.
+See [theory.md](theory.md) for the initial results and [audit_theory.md](audit_theory.md) for sharp identification intervals, follow-up-audit estimators, exact variance and bounded-budget audit allocation. Those results are classical statistical baselines, **not new frontier theory**. These are elementary selection/missing-data results, **not claimed as novel research theorems**.
 
 ```bash
 python selection.py
+python audit.py
 python -m unittest discover -s tests -v
 ```
 
